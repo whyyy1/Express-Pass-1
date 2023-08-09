@@ -1,0 +1,94 @@
+const express = require("express");
+
+const app = express();
+const port = 3000;
+const count = 99;
+
+app.get("/", (req, res) => {
+  res.send(`
+    <h1>${count} Bottles of beer on the wall</h1>
+    <a href="http://localhost:${port}/${
+    count - 1
+  }">take one down, pass it around</a>
+    <br>
+    <a href="http://localhost:${port}/bonus">Bonus</a>
+  `);
+});
+
+app.get("/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+
+  if (id === 0) {
+    res.send(`
+      <h1>No more bottles of beer on the wall</h1>
+      <a href="http://localhost:${port}">Start over</a>
+    `);
+  } else {
+    res.send(`
+      <h1>${id} Bottles of beer on the wall</h1>
+      <a href="http://localhost:${port}/${
+      id - 1
+    }">take one down, pass it around</a>
+      <br>
+      <a href="http://localhost:${port}/bonus">Bonus</a>
+    `);
+  }
+});
+
+// app.get("/bonus", (req, res) => {
+//   const randomChange = Math.random() < 0.5 ? -1 : 1;
+//   count += randomChange;
+
+//   if (count < 0) {
+//     count = 0;
+//   }
+
+//   const nextCount = count - 1;
+
+//   res.send(`
+//     <h1>More fun added!</h1>
+//     <p>Bugs went ${randomChange === -1 ? "down" : "up"} by 1</p>
+//     <pre>
+//       ${count} little bugs in the code
+//       ${count} little bugs
+//       Take one down
+//       Patch it around
+//       ${nextCount === 1 ? "1 bug" : nextCount + " bugs"} in the code
+//     </pre>
+//     <a href="http://localhost:${port}">Go back</a>
+//   `);
+// });
+
+//===============================================================
+
+// app.get("/", (req, res) => {
+//   res.send(
+//     `<h1>${count} Bottles of beer on the wall</h1> <a href=http://localhost:${port}/${
+//       count - 1
+//     }>take one down, pass it around</a>`
+//   );
+// });
+
+// app.get("/:id", (req, res) => {
+//   if (!req.params.id === 0) {
+//     res.send(
+//       `<h1>${
+//         req.params.id
+//       } Bottles of beer on the wall</h1><a href=http://localhost:${port}/${
+//         req.params.id - 1
+//       }>take one down, pass it around</a>`
+//     );
+//   } else {
+//     res.send(
+//       `<h1>${
+//         req.params.id
+//       } Bottles of beer on the wall</h1><a href=http://localhost:${port}/${
+//         req.params.id - 1
+//       }>take one down, pass it around</a>`
+//     );
+//   }
+// });
+
+app.listen(port, () => {
+  console.log(`App listening at http://localhost:${port}`);
+});
