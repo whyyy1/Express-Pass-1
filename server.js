@@ -35,29 +35,6 @@ app.get("/:id", (req, res) => {
   }
 });
 
-// app.get("/bonus", (req, res) => {
-//   const randomChange = Math.random() < 0.5 ? -1 : 1;
-//   count += randomChange;
-
-//   if (count < 0) {
-//     count = 0;
-//   }
-
-//   const nextCount = count - 1;
-
-//   res.send(`
-//     <h1>More fun added!</h1>
-//     <p>Bugs went ${randomChange === -1 ? "down" : "up"} by 1</p>
-//     <pre>
-//       ${count} little bugs in the code
-//       ${count} little bugs
-//       Take one down
-//       Patch it around
-//       ${nextCount === 1 ? "1 bug" : nextCount + " bugs"} in the code
-//     </pre>
-//     <a href="http://localhost:${port}">Go back</a>
-//   `);
-// });
 
 //===============================================================
 
