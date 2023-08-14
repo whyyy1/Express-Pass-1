@@ -11,7 +11,9 @@ app.get("/", (req, res) => {
     count - 1
   }">take one down, pass it around</a>
     <br>
-    <a href="http://localhost:${port}/bonus">Bonus</a>
+    <p>Pass it around</p>
+    <br>
+    <p>${count - 1} bottles of beer on the wall!</p>
   `);
 });
 
@@ -30,7 +32,10 @@ app.get("/:id", (req, res) => {
       id - 1
     }">take one down, pass it around</a>
       <br>
-      <a href="http://localhost:${port}/bonus">Bonus</a>
+      <br>
+    <p>Pass it around</p>
+    <br>
+    <p>${id - 1} bottles of beer on the wall!</p>
     `);
   }
 });
